@@ -11,11 +11,11 @@ Import FAS litters and pups.
 
 ```{r}
 litters_df = 
-  read_csv("data/FAS_pups.csv")
+  read_csv("data/FAS_litters.csv")
 litters_df = janitor::clean_names(litters_df)
 
 pups_df = 
-  read_csv("data/FAS_litters.csv")
+  read_csv("data/FAS_pups.csv")
 pups_df = janitor::clean_names(pups_df)
 ```
 
@@ -60,6 +60,27 @@ Learning Assessment
 
 ```{r}
 select(pups_df, litter_number)
+```
+
+
+##`filter`
+
+get rid of rows using `filter()`
+
+```{r}
+filter(litters_df, group == "Con7")
+
+filter(litters_df, group == "Mod8")
+
+filter(litters_df, gd0_weight <= 20)
+
+filter(litters_df, group == "Con7"| group == "Con8")
+
+filter(litters_df, group %in% c("Con7","Con8"))
+
+filter(litters_df, !(group == "Con7"))
+
+filter(litters_df, group %in% c("Con7","Con8"), gd0_weight > 20)
 ```
 
 
